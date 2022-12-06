@@ -1,7 +1,6 @@
 with open("day5/input.txt", "r", encoding="utf-8") as f:
     input = f.read()
 
-
 test = """    [D]    
 [N] [C]    
 [Z] [M] [P]

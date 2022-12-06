@@ -1,12 +1,12 @@
-
-with open('day1/input.txt', 'r', encoding='utf-8') as f:
+with open("day1/input.txt", "r", encoding="utf-8") as f:
     input = f.read()
+
 
 def find_max_score(scores):
     currentScore = 0
     maxScore = 0
-    for line in scores.split('\n'):
-        if line == '':
+    for line in scores.split("\n"):
+        if line == "":
             currentScore = 0
         else:
             currentScore += int(line)
@@ -14,11 +14,12 @@ def find_max_score(scores):
                 maxScore = currentScore
     return maxScore
 
+
 def find_top_three(scores):
     currentScore = 0
     topThree = [0, 0, 0]
-    for line in scores.split('\n'):
-        if line == '':
+    for line in scores.split("\n"):
+        if line == "":
             currentScore = 0
         else:
             currentScore += int(line)
