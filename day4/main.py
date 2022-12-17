@@ -1,14 +1,3 @@
-with open("day4/input.txt", "r", encoding="utf-8") as f:
-    input = f.read()
-
-test = """2-4,6-8
-2-3,4-5
-5-7,7-9
-2-8,3-7
-6-6,4-6
-2-6,4-8"""
-
-
 def is_subset(a, b):
     return a[0] >= b[0] and a[1] <= b[1]
 
@@ -39,9 +28,14 @@ def count_overlaps(inp):
     return count
 
 
-def main():
-    print(count_overlaps(input))
+def main(inp):
+    # result1 = findMaxScore(inp)
+    result2 = count_overlaps(inp)
+    # print("Result 1: ", result1)
+    print("Result 2: ", result2)
 
 
 if __name__ == "__main__":
-    main()
+    with open("day4/input.txt", "r", encoding="utf-8") as f:
+        inp = f.read()
+    main(inp)

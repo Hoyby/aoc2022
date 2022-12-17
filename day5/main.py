@@ -1,17 +1,3 @@
-with open("day5/input.txt", "r", encoding="utf-8") as f:
-    input = f.read()
-
-test = """    [D]    
-[N] [C]    
-[Z] [M] [P]
- 1   2   3 
-
-move 1 from 2 to 1
-move 3 from 1 to 3
-move 2 from 2 to 1
-move 1 from 1 to 2"""
-
-
 def parse_input(input):
     stacks = []
     moves = []
@@ -68,7 +54,7 @@ def prettyPrint(stacks):
         print("".join(["[" + crate + "]" for crate in row]))
 
 
-def main(inp):
+def p2(inp):
     stacks, moves = parse_input(inp)
     for move in moves:
         ammount, from_, to = move
@@ -84,8 +70,17 @@ def main(inp):
         # for _ in range(ammount):
         #     stacks[to - 1].append(stacks[from_ - 1].pop())
 
-    print("".join([stack[-1] for stack in stacks]))
+    return "".join([stack[-1] for stack in stacks])
+
+
+def main(inp):
+    # result1 = findMaxScore(inp)
+    result2 = p2(inp)
+    # print("Result 1: ", result1)
+    print("Result 2: ", result2)
 
 
 if __name__ == "__main__":
-    main(input)
+    with open("day5/input.txt", "r", encoding="utf-8") as f:
+        inp = f.read()
+    main(inp)

@@ -1,13 +1,3 @@
-with open("day2/input.txt", "r", encoding="utf-8") as f:
-    input = f.read()
-
-
-test = """A Y
-B X
-C Z
-"""
-
-
 def calculate_winnerscore(P1, P2):
     if P1 == P2:
         return 3
@@ -57,7 +47,7 @@ def select_move(enemymove, gameoutcome):
         return "A"
 
 
-def main(inp):
+def total_score(inp):
     scorelist = []
     for line in inp.split("\n"):
         data = line.split(" ")
@@ -71,4 +61,14 @@ def main(inp):
     return sum(scorelist)
 
 
-print(main(input))
+def main(inp):
+    # result1 = p1(inp)
+    result2 = total_score(inp)
+    # print("Result 1: ", result1)
+    print("Result 2: ", result2)
+
+
+if __name__ == "__main__":
+    with open("day2/input.txt", "r", encoding="utf-8") as f:
+        inp = f.read()
+    main(inp)

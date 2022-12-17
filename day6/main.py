@@ -1,9 +1,3 @@
-with open("day6/input.txt", "r", encoding="utf-8") as f:
-    input = f.read()
-
-test = """mjqjpqmgbljsphdztnvjfqwrcgsmlb"""
-
-
 def getFirstMarker(input, markerLength=4):
     marker = ""
     for char in input:
@@ -16,9 +10,14 @@ def getFirstMarker(input, markerLength=4):
     return -1, marker
 
 
-def main():
-    print(getFirstMarker(input, 14))
+def main(inp):
+    # result1 = findMaxScore(inp)
+    result2 = getFirstMarker(inp, 14)
+    # print("Result 1: ", result1)
+    print("Result 2: ", result2)
 
 
 if __name__ == "__main__":
-    main()
+    with open("day6/input.txt", "r", encoding="utf-8") as f:
+        inp = f.read()
+    main(inp)

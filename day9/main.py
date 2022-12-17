@@ -1,12 +1,3 @@
-test = """R 4
-U 4
-L 3
-D 1
-R 4
-D 1
-L 5
-R 2"""
-
 with open("day9/input.txt", "r", encoding="utf-8") as f:
     input = f.read()
 
@@ -28,7 +19,7 @@ def moveTail(head, tail):
     return tail
 
 
-def main(data):
+def calc_rope(data):
     head = (0, 0)
     tail = [(0, 0) for _ in range(9)]
     moves = {"R": (1, 0), "L": (-1, 0), "U": (0, 1), "D": (0, -1)}
@@ -44,9 +35,16 @@ def main(data):
                 tail[i] = moveTail(tail[i - 1], tail[i])
             locationsTask1.add(tail[0])
             locationsTask2.add(tail[8])
-    print(len(locationsTask1))
-    print(len(locationsTask2))
+    return len(locationsTask1), len(locationsTask2)
+
+
+def main(inp):
+    result1, result2 = calc_rope(inp)
+    print("Result 1: ", result1)
+    print("Result 2: ", result2)
 
 
 if __name__ == "__main__":
-    main(input)
+    with open("day9/input.txt", "r", encoding="utf-8") as f:
+        inp = f.read()
+    main(inp)

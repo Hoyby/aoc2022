@@ -1,15 +1,3 @@
-test = """vJrwpWtwJgWrhcsFMMfFFhFp
-jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-PmmdzqPrVvPwwTWBwg
-wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-ttgJtRGJQctTZtZT
-CrZsJsPPZsGzwwsLwLmpwMDw"""
-
-
-with open("day3/input.txt", "r", encoding="utf-8") as f:
-    input = f.read()
-
-
 def find_common_letters(inp):
     common_letters = []
     for line in inp.splitlines():
@@ -40,4 +28,14 @@ def find_badge_letters(inp, group_size=3):
     return badge_letters
 
 
-print(find_common_letter_priority(find_badge_letters(input)))
+def main(inp):
+    result1 = find_common_letter_priority(find_common_letters(inp))
+    result2 = find_common_letter_priority(find_badge_letters(inp))
+    print("Result 1: ", result1)
+    print("Result 2: ", result2)
+
+
+if __name__ == "__main__":
+    with open("day3/input.txt", "r", encoding="utf-8") as f:
+        inp = f.read()
+    main(inp)

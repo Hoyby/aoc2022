@@ -1,8 +1,4 @@
-with open("day1/input.txt", "r", encoding="utf-8") as f:
-    input = f.read()
-
-
-def find_max_score(scores):
+def findMaxScore(scores):
     currentScore = 0
     maxScore = 0
     for line in scores.split("\n"):
@@ -15,7 +11,7 @@ def find_max_score(scores):
     return maxScore
 
 
-def find_top_three(scores):
+def findSumTopThree(scores):
     currentScore = 0
     topThree = [0, 0, 0]
     for line in scores.split("\n"):
@@ -26,10 +22,17 @@ def find_top_three(scores):
             if currentScore > topThree[0]:
                 topThree[0] = currentScore
                 topThree.sort(reverse=False)
-    return topThree
+    return sum(topThree)
 
 
-result1 = find_max_score(input)
-result2 = sum(find_top_three(input))
-print("Result 1: ", result1)
-print("Result 2: ", result2)
+def main(inp):
+    result1 = findMaxScore(inp)
+    result2 = findSumTopThree(inp)
+    print("Result 1: ", result1)
+    print("Result 2: ", result2)
+
+
+if __name__ == "__main__":
+    with open("day1/input.txt", "r", encoding="utf-8") as f:
+        inp = f.read()
+    main(inp)

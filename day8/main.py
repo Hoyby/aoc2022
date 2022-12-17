@@ -1,16 +1,6 @@
 from functools import reduce
 
 
-test = """30373
-25512
-65332
-33549
-35390"""
-
-with open("day8/input.txt", "r", encoding="utf-8") as f:
-    input = f.read()
-
-
 def createBoolGrid(inp):
     grid = []
     for elem in inp:
@@ -19,6 +9,7 @@ def createBoolGrid(inp):
 
 
 def getNoOfVisableTrees(inp):
+    inp = inp.splitlines()
     boolGrid = createBoolGrid(inp)
     rowLen = len(inp[0])
     colHeight = len(inp)
@@ -67,6 +58,7 @@ def getNoOfVisableTrees(inp):
 # part 2
 def findBestViewpoint(inp):
     result = 0
+    inp = inp.splitlines()
     rowLen = len(inp[0])
     colHeight = len(inp)
     for row in range(colHeight):
@@ -101,11 +93,14 @@ def findBestViewpoint(inp):
     return result
 
 
-def main(data):
-    lines = [line.strip() for line in data.splitlines()]
-    print(getNoOfVisableTrees(lines))
-    print(findBestViewpoint(lines))
+def main(inp):
+    result1 = getNoOfVisableTrees(inp)
+    result2 = findBestViewpoint(inp)
+    print("Result 1: ", result1)
+    print("Result 2: ", result2)
 
 
 if __name__ == "__main__":
-    main(input)
+    with open("day8/input.txt", "r", encoding="utf-8") as f:
+        inp = f.read()
+    main(inp)
